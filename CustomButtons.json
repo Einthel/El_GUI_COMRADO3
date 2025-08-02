@@ -1,0 +1,132 @@
+[
+    {
+        "name": "VPN",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN23.png",
+        "sign": "VPN",
+        "font": "Impact",
+        "action": {
+            "type": "program",
+            "value": "D:/Projects_X/El_GUI_COMRADO3/Hiddify.lnk"
+        }
+    },
+    {
+        "name": "Fan Profile 1",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN11.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F3"
+        }
+    },
+    {
+        "name": "Fan Profile 2",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN12.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F4"
+        }
+    },
+    {
+        "name": "Fan Profile 3",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN13.png",
+        "sign": "",
+        "font": "Consolas",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F5"
+        }
+    },
+    {
+        "name": "Калькулятор",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/calculator.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "open_calculator"
+        }
+    },
+    {
+        "name": "Блокнот",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/notepad.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "open_notepad"
+        }
+    },
+    {
+        "name": "Play",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/pause-play.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "media_play_pause"
+        }
+    },
+    {
+        "name": "Sound Down",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/sound_down.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "sound_down"
+        }
+    },
+    {
+        "name": "Soind Up",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/sound_up.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "sound_up"
+        }
+    },
+    {
+        "name": "Screenshot",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN14.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F10"
+        }
+    },
+    {
+        "name": "Record 30 sec",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN15.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F11"
+        }
+    },
+    {
+        "name": "BackPage",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-left.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "NextPage",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-right.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    }
+]

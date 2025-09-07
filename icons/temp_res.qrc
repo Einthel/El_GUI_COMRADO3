@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="path">
+    <file>feather/align-left.svg</file>
+  </qresource>
+</RCC>

@@ -1,6 +1,156 @@
 {
     "page_1": {
         "toolButton_1": {
+            "name": "Telegram",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/telegram.png",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "program",
+                "value": "C:/Users/nexus/AppData/Roaming/Telegram Desktop/Telegram.exe"
+            }
+        },
+        "toolButton_2": {
+            "name": "Yandex Browser",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/ya.png",
+            "sign": "",
+            "font": "Arial",
+            "action": {
+                "type": "program",
+                "value": "C:/Users/nexus/AppData/Local/Yandex/YandexBrowser/Application/browser.exe"
+            }
+        },
+        "toolButton_3": {
+            "name": "Yandex Music",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/YMusic.png",
+            "sign": "",
+            "font": "Calibri",
+            "font_size": 8,
+            "action": {
+                "type": "program",
+                "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Яндекс Музыка.lnk"
+            }
+        },
+        "toolButton_5": {
+            "name": "Блокнот",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/notepad.png",
+            "sign": "",
+            "font": "Arial",
+            "action": {
+                "type": "method",
+                "value": "open_notepad"
+            }
+        },
+        "toolButton_6": {
+            "icon_path": "",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 8,
+            "action": {
+                "type": "",
+                "value": ""
+            }
+        },
+        "toolButton_9": {
+            "name": "Arrow Left",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_left_sq.svg",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "method",
+                "value": "previous_page"
+            }
+        },
+        "toolButton_12": {
+            "name": "Arrow Right",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_right_sq.svg",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "method",
+                "value": "next_page"
+            }
+        },
+        "toolButton_7": {
+            "icon_path": "",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "",
+                "value": ""
+            }
+        },
+        "toolButton_4": {
+            "name": "VPN",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/vpn.png",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "program",
+                "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Clash Verge/Clash Verge.lnk"
+            }
+        },
+        "toolButton_8": {
+            "icon_path": "",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "",
+                "value": ""
+            }
+        },
+        "toolButton_10": {
+            "name": "Light On",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN31.png",
+            "sign": "Light ON",
+            "font": "Arial",
+            "font_size": 12,
+            "action": {
+                "type": "",
+                "value": ""
+            }
+        },
+        "toolButton_11": {
+            "name": "Light Off",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN33.png",
+            "sign": "Light Off",
+            "font": "Cambria",
+            "action": {
+                "type": "",
+                "value": ""
+            }
+        }
+    },
+    "page_2": {
+        "toolButton_9": {
+            "name": "Arrow Left 02",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_left_sq_02.svg",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "method",
+                "value": "previous_page"
+            }
+        },
+        "toolButton_12": {
+            "name": "Arrow Right 02",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_right_sq_02.svg",
+            "sign": "",
+            "font": "Arial",
+            "font_size": 5,
+            "action": {
+                "type": "method",
+                "value": "next_page"
+            }
+        },
+        "toolButton_1": {
             "name": "Fan Profile 1",
             "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN11.png",
             "sign": "",
@@ -8,26 +158,6 @@
             "action": {
                 "type": "shortcut",
                 "value": "Ctrl+Shift+F3"
-            }
-        },
-        "toolButton_9": {
-            "name": "BackPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-left.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "previous_page"
-            }
-        },
-        "toolButton_12": {
-            "name": "NextPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-right.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "next_page"
             }
         },
         "toolButton_2": {
@@ -40,34 +170,14 @@
                 "value": "Ctrl+Shift+F4"
             }
         },
-        "toolButton_3": {
-            "name": "Fan Profile 3",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN13.png",
-            "sign": "",
-            "font": "Consolas",
-            "action": {
-                "type": "shortcut",
-                "value": "Ctrl+Shift+F5"
-            }
-        },
-        "toolButton_4": {
-            "name": "VPN",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN23.png",
-            "sign": "VPN",
-            "font": "Impact",
-            "action": {
-                "type": "program",
-                "value": "D:/Projects_X/El_GUI_COMRADO3/Hiddify.lnk"
-            }
-        },
-        "toolButton_5": {
-            "name": "Screenshot",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN14.png",
+        "toolButton_8": {
+            "name": "Sound Down",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/sound_down.png",
             "sign": "",
             "font": "Arial",
             "action": {
-                "type": "shortcut",
-                "value": "Ctrl+Shift+F10"
+                "type": "method",
+                "value": "sound_down"
             }
         },
         "toolButton_6": {
@@ -80,68 +190,57 @@
                 "value": "Ctrl+Shift+F11"
             }
         },
-        "toolButton_7": {
-            "name": "Калькулятор",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/calculator.png",
+        "toolButton_3": {
+            "name": "Fan Profile 3",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN13.png",
             "sign": "",
-            "font": "Arial",
+            "font": "Consolas",
             "action": {
-                "type": "method",
-                "value": "open_calculator"
-            }
-        },
-        "toolButton_8": {
-            "name": "Блокнот",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/notepad.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "open_notepad"
+                "type": "shortcut",
+                "value": "Ctrl+Shift+F5"
             }
         },
         "toolButton_11": {
             "icon_path": "",
             "sign": "",
             "font": "Arial",
+            "font_size": 5,
             "action": {
                 "type": "",
                 "value": ""
             }
-        }
-    },
-    "page_2": {
-        "toolButton_9": {
-            "name": "BackPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-left.png",
+        },
+        "toolButton_10": {
+            "icon_path": "",
             "sign": "",
             "font": "Arial",
+            "font_size": 5,
             "action": {
-                "type": "method",
-                "value": "previous_page"
+                "type": "",
+                "value": ""
             }
         },
-        "toolButton_12": {
-            "name": "NextPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-right.png",
+        "toolButton_5": {
+            "name": "Screenshot",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN14.png",
             "sign": "",
             "font": "Arial",
             "action": {
-                "type": "method",
-                "value": "next_page"
-            }
-        },
-        "toolButton_6": {
-            "name": "Sound Down",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/sound_down.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "sound_down"
+                "type": "shortcut",
+                "value": "Ctrl+Shift+F10"
             }
         },
         "toolButton_7": {
+            "name": "Overlay",
+            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN16.png",
+            "sign": "",
+            "font": "Arial",
+            "action": {
+                "type": "shortcut",
+                "value": "F8"
+            }
+        },
+        "toolButton_4": {
             "name": "Soind Up",
             "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/sound_up.png",
             "sign": "",
@@ -150,38 +249,9 @@
                 "type": "method",
                 "value": "sound_up"
             }
-        },
-        "toolButton_5": {
-            "name": "Play",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/pause-play.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "media_play_pause"
-            }
         }
     },
-    "page_3": {
-        "toolButton_9": {
-            "name": "BackPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-left.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "previous_page"
-            }
-        },
-        "toolButton_12": {
-            "name": "NextPage",
-            "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/arrow-right.png",
-            "sign": "",
-            "font": "Arial",
-            "action": {
-                "type": "method",
-                "value": "next_page"
-            }
-        }
+    "yandex_music": {
+        "token": "y0__xCH_JaJARje-AYgj-qsqBTwK5nsEfBUoUZHV_YOhAcJ8y4rVQ"
     }
 }

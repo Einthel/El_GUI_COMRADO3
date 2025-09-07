@@ -1,3 +1,5 @@
 PySide6
 pycaw
-keyboard 
+keyboard
+yandex-music
+requests 

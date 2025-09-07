@@ -1,0 +1,41 @@
+{
+    "Bar_editor_target_1": {
+        "widget_type": "ClockWidget",
+        "settings": {
+            "position": [
+                0,
+                0
+            ],
+            "font_size": 20,
+            "font_weight": "bold",
+            "alignment": "right"
+        }
+    },
+    "Bar_editor_target_2": {
+        "widget_type": "VolumeWidget",
+        "settings": {
+            "position": [
+                0,
+                0
+            ]
+        }
+    },
+    "Bar_editor_target_3": {
+        "widget_type": "MusicWidget",
+        "settings": {
+            "position": [
+                0,
+                0
+            ]
+        }
+    },
+    "Bar_editor_target_4": {
+        "widget_type": "TimerWidget",
+        "settings": {
+            "position": [
+                0,
+                0
+            ]
+        }
+    }
+}

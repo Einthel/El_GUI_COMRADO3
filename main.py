@@ -2,50 +2,63 @@ import sys
 import os
 import subprocess
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QWidget, QLabel, QGridLayout, QFrame, QToolButton
+    QApplication, QMainWindow, QWidget, QLabel, QGridLayout, QFrame, QToolButton, QSizePolicy,
+    QVBoxLayout
 )
-from PySide6.QtCore import Qt, QRect, QSize
+from PySide6.QtCore import Qt, QRect, QSize, QEvent
 from PySide6.QtGui import QIcon
+import warnings
 
-# Импортируем наши сгенерированные классы и обработчик действий
-from ui_comrado3 import Ui_MainWindow
-from ui_Editor import Ui_Editor_Window
-from comrado3 import ActionHandler
-from LoadSave import load_config
-from editor import EditorWindow
+# Импорты для виджетов бара - добавляем сюда
+from Bar_widget import ClockWidget, VolumeWidget, MusicWidget, TimerWidget
+from Music_player import MusicPlayer
+from LoadSave import load_bar_config
+from widget_loader import load_and_display_widgets
+from utils import compile_ui_files
 
+def compile_ui_files_recursively(start_dir):
+    """
+    Рекурсивно находит и компилирует все .ui файлы в .py,
+    начиная с указанной директории.
+    """
+    for root, _, files in os.walk(start_dir):
+        for ui_file in files:
+            if not ui_file.endswith(".ui"):
+                continue
 
+            ui_path = os.path.join(root, ui_file)
+            
+            # Генерируем имя .py файла (например, comrado3.ui -> ui_comrado3.py)
+            # или resource/Bar_widget/Clock_widget.ui -> resource/Bar_widget/ui_Clock_widget.py
+            base_name = os.path.splitext(ui_file)[0]
+            py_file_name = f"ui_{base_name}.py"
+            py_path = os.path.join(root, py_file_name)
 
+            # Перекомпилируем, если .py файл отсутствует или .ui файл новее
+            if not os.path.exists(py_path) or os.path.getmtime(ui_path) > os.path.getmtime(py_path):
+                print(f"Обнаружены изменения в '{ui_path}'. Компиляция в '{py_path}'...")
+                try:
+                    subprocess.run(['pyside6-uic', ui_path, '-o', py_path], check=True)
+                    print("Компиляция прошла успешно.")
+                except (subprocess.CalledProcessError, FileNotFoundError) as e:
+                    print(f"Ошибка: Не удалось скомпилировать '{ui_path}'.")
+                    print(f"Подробности: {e}")
+                    print("Убедитесь, что 'pyside6-tools' установлены и доступны в системном PATH.")
+                    sys.exit(1)
 
-
-def compile_ui_files(ui_files):
-    """Проверяет и компилирует список .ui файлов, если это необходимо."""
-    for ui_file in ui_files:
-        # Генерируем имя .py файла из имени .ui файла (например, comrado3.ui -> ui_comrado3.py)
-        py_file = f"ui_{os.path.splitext(os.path.basename(ui_file))[0]}.py"
-
-        if not os.path.exists(ui_file):
-            print(f"Предупреждение: Файл {ui_file} не найден.")
-            continue
-
-        # Перекомпилируем, если .py файл отсутствует или .ui файл новее
-        if not os.path.exists(py_file) or os.path.getmtime(ui_file) > os.path.getmtime(py_file):
-            print(f"Обнаружены изменения в '{ui_file}'. Компиляция в '{py_file}'...")
-            try:
-                subprocess.run(['pyside6-uic', ui_file, '-o', py_file], check=True)
-                print("Компиляция прошла успешно.")
-            except (subprocess.CalledProcessError, FileNotFoundError):
-                print(f"Ошибка: Не удалось скомпилировать '{ui_file}'.")
-                print("Убедитесь, что 'pyside6-tools' установлены и доступны в системном PATH.")
-                sys.exit(1)
-
+# Импортируем сгенерированные классы и обработчик действий уже ПОСЛЕ компиляции
+# (Это объявление будет выполнено после блока if __name__ == '__main__')
+# Но для ясности лучше оставить их здесь, а реальный импорт сделать после компиляции
+# Однако Python выполняет импорты до основного кода, поэтому мы оставим это как есть,
+# но будем помнить, что компиляция должна произойти до инициализации MainWindow.
 
 class SettingsWindow(QWidget):
     def __init__(self):
         super().__init__()
+        self.setObjectName("SettingsWindow") # Добавляем имя объекта для QSS
         self.setWindowTitle("Настройки")
         self.setGeometry(200, 200, 500, 300)
-        self.setStyleSheet("background-color: #2b2b2b; color: white;")
+        # self.setStyleSheet("background-color: #2b2b2b; color: white;") # Убираем инлайновый стиль
 
         layout = QGridLayout(self)
         label = QLabel("Здесь будут настройки приложения.")
@@ -59,12 +72,20 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # Сохраняем исходные флаги окна при инициализации
+        self._is_overlay_mode = False
+        self._original_flags = self.windowFlags()
+
+        self.setAttribute(Qt.WA_AcceptTouchEvents)
+
         self.config = load_config()
 
-        self.setWindowTitle("El GUI COMRADO")
+        # self.setWindowTitle("El GUI COMRADO 5.1.2") # Удаляем эту строку
 
         self.settings_window = None
         self.editor_window = None
+        self.editor_bar_window = None
+        self.music_player_window = None
 
         # Перестраиваем страницы при запуске, чтобы UI соответствовал конфигу
         self.rebuild_pages()
@@ -72,6 +93,73 @@ class MainWindow(QMainWindow):
         # Создаем экземпляр обработчика действий и передаем ему себя
         self.action_handler = ActionHandler(self)
         self.action_handler.setup_pages_and_controls()
+
+        # Загружаем виджеты бара
+        load_and_display_widgets(self.ui, is_editor=False)
+
+        # Подключаем кнопку к слоту
+        self.ui.Music_bttn.clicked.connect(self.open_music_player)
+
+
+    def open_music_player(self):
+        """
+        ВРЕМЕННАЯ ФУНКЦИЯ ДЛЯ ДЕБАГА И ТЕСТА!
+        Открывает окно музыкального плеера.
+        В будущем будет заменен на вызов через систему виджетов/плагинов.
+        """
+        if self.music_player_window is None or not self.music_player_window.isVisible():
+            self.music_player_window = MusicPlayer()
+            self.music_player_window.show()
+
+    def toggle_overlay_mode(self):
+        """Переключает режим окна между обычным и полноэкранным."""
+        self._is_overlay_mode = not self._is_overlay_mode
+
+        if self._is_overlay_mode:
+            print("Переключение в полноэкранный режим.")
+            # Отключаем кнопки
+            self.ui.Editor_bar_button.setEnabled(False)
+            self.ui.Editor_button.setEnabled(False)
+            # Устанавливаем кнопку в "нажатое" состояние
+            self.ui.Change_Button.setChecked(True)
+            # Показываем окно в полноэкранном режиме
+            self.showFullScreen()
+        else:
+            print("Переключение в обычный режим.")
+            # Включаем кнопки
+            self.ui.Editor_bar_button.setEnabled(True)
+            self.ui.Editor_button.setEnabled(True)
+            # Возвращаем кнопку в обычное состояние
+            self.ui.Change_Button.setChecked(False)
+            # Возвращаем обычный размер окна
+            self.showNormal()
+
+    def event(self, event):
+        """Перехватывает события, чтобы обработать касания."""
+        if event.type() == QEvent.Type.TouchBegin:
+            # Проверяем, есть ли точки касания
+            if not event.points():
+                return super().event(event)
+
+            # Получаем первую точку касания
+            touch_point = event.points()[0]
+            
+            # Находим виджет (кнопку) под точкой касания
+            widget = self.childAt(touch_point.position().toPoint())
+            
+            # Проверяем, что это одна из наших кнопок ToolButton
+            if isinstance(widget, QToolButton) and "ToolButton" in widget.objectName():
+                # Вызываем наш универсальный обработчик
+                self.action_handler.handle_button_action(widget)
+                return True # Сообщаем, что событие обработано
+
+        # Для всех остальных событий вызываем стандартный обработчик
+        return super().event(event)
+
+    def resizeEvent(self, event):
+        """Перехватывает событие изменения размера окна для обновления иконок."""
+        super().resizeEvent(event)
+        self.update_icon_sizes()
 
     def show_editor_window(self):
         """Открывает модальное окно редактора."""
@@ -81,6 +169,41 @@ class MainWindow(QMainWindow):
             # Подключаем сигнал к слоту для обновления кнопок
             self.editor_window.config_saved.connect(self.update_buttons)
             self.editor_window.show()
+
+    def show_editor_bar_window(self):
+        """Открывает окно редактора панели и подключается к его сигналу."""
+        from Editor_bar import EditorBarWindow
+        if self.editor_bar_window is None or not self.editor_bar_window.isVisible():
+            self.editor_bar_window = EditorBarWindow(self)
+            self.editor_bar_window.setWindowModality(Qt.ApplicationModal)
+            # Подключаем сигнал от редактора к слоту обновления в главном окне
+            self.editor_bar_window.config_saved.connect(
+                lambda: load_and_display_widgets(self.ui, is_editor=False)
+            )
+            self.editor_bar_window.show()
+
+    def _load_and_display_bar_widgets(self):
+        """Загружает и отображает виджеты на панели главного окна, используя новую структуру конфига."""
+        load_and_display_widgets(self.ui, is_editor=False)
+
+    def update_icon_sizes(self):
+        """Обновляет размеры иконок кнопок на текущей видимой странице."""
+        current_page = self.ui.Button_stackedWidget.currentWidget()
+        if not current_page:
+            return
+
+        buttons = current_page.findChildren(QToolButton)
+        for button in buttons:
+            # Оставляем небольшой отступ (padding) вокруг иконки
+            padding = 15
+            # Рассчитываем размер иконки, чтобы она была чуть меньше кнопки
+            icon_w = button.width() - padding
+            icon_h = button.height() - padding
+            
+            # Используем меньшую из сторон, чтобы иконка была квадратной и вписывалась
+            new_size = max(0, min(icon_w, icon_h)) 
+            
+            button.setIconSize(QSize(new_size, new_size))
 
     def update_buttons(self):
         """Перезагружает конфиг, перестраивает страницы и обновляет кнопки в главном окне."""
@@ -109,40 +232,46 @@ class MainWindow(QMainWindow):
         if not page_keys:
             page_keys = ["page_1"]
 
-        # Точные координаты для кнопок из файла ui_comrado3.py
-        button_geometries = [
-            QRect(50, 20, 128, 128), QRect(220, 20, 128, 128),
-            QRect(390, 20, 128, 128), QRect(560, 20, 128, 128),
-            QRect(50, 160, 128, 128), QRect(220, 160, 128, 128),
-            QRect(390, 160, 128, 128), QRect(560, 160, 128, 128),
-            QRect(50, 300, 128, 128), QRect(220, 300, 128, 128),
-            QRect(390, 300, 128, 128), QRect(560, 300, 128, 128)
-        ]
-
         for page_key in page_keys:
-            # Создаем виджет страницы
+            # Создаем ВНЕШНИЙ виджет-контейнер для тени
             page_widget = QWidget()
             page_widget.setObjectName(page_key)
             
-            # Создаем фрейм для кнопок, используя точные размеры
-            button_frame = QFrame(page_widget)
-            button_frame.setObjectName(f"Button_frame_{page_key}")
-            button_frame.setGeometry(QRect(10, 0, 730, 440))
-            button_frame.setFrameShape(QFrame.Shape.StyledPanel)
-            button_frame.setFrameShadow(QFrame.Shadow.Raised)
+            # Создаем компоновку для внешнего виджета, чтобы внутренний фрейм его заполнил
+            container_layout = QVBoxLayout(page_widget)
+            container_layout.setContentsMargins(10, 10, 10, 10) # Отступы для тени
 
-            # Создаем 12 кнопок на новой странице
-            for i in range(1, 13):
-                button = QToolButton(button_frame)
-                button.setObjectName(f"ToolButton_{i:02d}")
-                
-                # Устанавливаем точную геометрию из списка
-                button.setGeometry(button_geometries[i-1])
-                
-                button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-                button.setIconSize(QSize(96, 96))
-                button.setCheckable(False)
-                button.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+            # Создаем ВНУТРЕННИЙ фрейм для фона и скругления
+            page_container = QFrame()
+            page_container.setObjectName("page_container") # Имя для QSS
+            container_layout.addWidget(page_container)
+
+            # Создаем сеточную компоновку уже для ВНУТРЕННЕГО фрейма
+            grid_layout = QGridLayout(page_container)
+            grid_layout.setSpacing(15) # Расстояние между кнопками
+            
+            # Создаем 12 кнопок и добавляем их в сетку 3x4
+            button_index = 0
+            for row in range(3):
+                for col in range(4):
+                    if button_index >= 12:
+                        break
+                    
+                    button = QToolButton()
+                    # Имя объекта теперь включает номер от 1 до 12
+                    button.setObjectName(f"ToolButton_{button_index + 1:02d}")
+                    
+                    # Устанавливаем политику размеров, чтобы кнопка могла растягиваться
+                    button.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+                    
+                    button.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+                    button.setCheckable(False)
+                    button.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextUnderIcon)
+                    
+                    # Добавляем кнопку в ячейку сетки
+                    grid_layout.addWidget(button, row, col)
+                    
+                    button_index += 1
             
             self.ui.Button_stackedWidget.addWidget(page_widget)
 
@@ -155,9 +284,41 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    # Вызываем рекурсивную компиляцию для всего проекта ПЕРЕД импортами
+    compile_ui_files()
+    
+    # Теперь, когда все скомпилировано, можно безопасно импортировать модули,
+    # которые зависят от сгенерированных файлов.
+    from ui_comrado3 import Ui_MainWindow
+    from comrado3 import ActionHandler
+    from LoadSave import load_config
+    from editor import EditorWindow
+    from utils import get_window_title_from_ui
+
     app = QApplication(sys.argv)
-    # Вызываем компиляцию здесь, чтобы она произошла до создания QApplication
-    compile_ui_files(['comrado3.ui', 'Editor.ui'])
+    
+    # --- ЗАГРУЗКА СТИЛЕЙ ИЗ ФАЙЛА ---
+    try:
+        with open("Style.qss", "r", encoding="utf-8") as f:
+            style = f.read()
+        app.setStyleSheet(style)
+        print("Стили из Style.qss успешно загружены.")
+    except FileNotFoundError:
+        print("ПРЕДУПРЕЖДЕНИЕ: Файл Style.qss не найден. Приложение будет использовать стандартный стиль.")
+    except Exception as e:
+        print(f"Произошла ошибка при загрузке стилей: {e}")
+    # ------------------------------------
+
+    # --- Получаем заголовок окна из .ui файла ---
+    window_title = get_window_title_from_ui("comrado3.ui") or "El GUI COMRADO"
+
+    # --- Запуск основного окна ---
     window = MainWindow()
+    window.setWindowTitle(window_title) # Устанавливаем динамически загруженный заголовок
+
+    # --- Убрана логика для автоматического позиционирования ---
+    # Теперь окно всегда запускается в обычном режиме.
     window.show()
-    sys.exit(app.exec()) 
+    # --------------------------------------------------------------------------
+    
+    sys.exit(app.exec())

@@ -1,12 +1,13 @@
 [
     {
         "name": "VPN",
-        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN23.png",
-        "sign": "VPN",
-        "font": "Impact",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/vpn.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
         "action": {
             "type": "program",
-            "value": "D:/Projects_X/El_GUI_COMRADO3/Hiddify.lnk"
+            "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Clash Verge/Clash Verge.lnk"
         }
     },
     {
@@ -127,6 +128,124 @@
         "action": {
             "type": "method",
             "value": "next_page"
+        }
+    },
+    {
+        "name": "Overlay",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN16.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "F8"
+        }
+    },
+    {
+        "name": "Cursor",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/feather/sun.svg",
+        "sign": "cur-sor",
+        "font": "Cambria",
+        "font_size": 15,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/Desktop/Cursor.lnk"
+        }
+    },
+    {
+        "name": "Yandex Music",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/YMusic.png",
+        "sign": "",
+        "font": "Calibri",
+        "font_size": 8,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Яндекс Музыка.lnk"
+        }
+    },
+    {
+        "name": "Yandex Browser",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/ya.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Local/Yandex/YandexBrowser/Application/browser.exe"
+        }
+    },
+    {
+        "name": "Light On",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN31.png",
+        "sign": "Light ON",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "",
+            "value": ""
+        }
+    },
+    {
+        "name": "Light Off",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/BTN33.png",
+        "sign": "Light Off",
+        "font": "Cambria",
+        "action": {
+            "type": "",
+            "value": ""
+        }
+    },
+    {
+        "name": "Arrow Left",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_left_sq.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "Arrow Right",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_right_sq.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    },
+    {
+        "name": "Arrow Left 02",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_left_sq_02.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "Arrow Right 02",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/Arrow_icon/Arrow_right_sq_02.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    },
+    {
+        "name": "Telegram",
+        "icon_path": "D:/Projects_X/El_GUI_COMRADO3/icons/telegram.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Roaming/Telegram Desktop/Telegram.exe"
         }
     }
 ]

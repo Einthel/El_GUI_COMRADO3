@@ -2,6 +2,8 @@ import json
 import os
 
 CONFIG_FILE = 'config.json'
+CONFIG_BAR_FILE = 'config_bar.json'
+
 
 def config_exists():
     """
@@ -26,10 +28,12 @@ def load_config():
     Если файл не существует, создает его со страницей по умолчанию.
     Также обрабатывает переход от старого формата (список pages) к новому (словари page_x).
     """
+    import constants
+
     if not config_exists():
         # Создаем конфиг по умолчанию с одной пустой страницей
         default_config = {
-            "page_1": {}
+            f"{constants.PAGE_PREFIX}1": {}
         }
         save_config(default_config)
         return default_config
@@ -43,7 +47,7 @@ def load_config():
             print("Обнаружен старый формат конфигурации. Выполняется миграция...")
             pages_list = config.pop("pages")
             for i, page_data in enumerate(pages_list):
-                config[f"page_{i+1}"] = page_data
+                config[f"{constants.PAGE_PREFIX}{i+1}"] = page_data
             
             # После миграции можно сразу сохранить конфиг в новом формате
             save_config(config)
@@ -51,12 +55,42 @@ def load_config():
         # --- Конец миграции ---
 
         # Если после миграции или при обычной загрузке нет ни одной страницы
-        if not any(key.startswith("page_") for key in config):
-            config["page_1"] = {}
+        if not any(key.startswith(constants.PAGE_PREFIX) for key in config):
+            config[f"{constants.PAGE_PREFIX}1"] = {}
             save_config(config)
 
         return config
     except (IOError, json.JSONDecodeError) as e:
         print(f"Ошибка при загрузке файла конфигурации: {e}")
         # Возвращаем базовый конфиг в случае серьезной ошибки
-        return {"page_1": {}}
+        return {f"{constants.PAGE_PREFIX}1": {}}
+
+# --- Функции для конфигурации панели виджетов ---
+
+def save_bar_config(data):
+    """Сохраняет конфигурацию панели виджетов в файл config_bar.json."""
+    try:
+        with open(CONFIG_BAR_FILE, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except IOError as e:
+        print(f"Ошибка при сохранении файла конфигурации панели: {e}")
+
+def load_bar_config():
+    """
+    Загружает конфигурацию панели виджетов из файла config_bar.json.
+    Если файл не существует или поврежден, создает и возвращает пустой словарь.
+    """
+    if not os.path.exists(CONFIG_BAR_FILE) or os.path.getsize(CONFIG_BAR_FILE) == 0:
+        default_config = {}
+        save_bar_config(default_config)
+        return default_config
+
+    try:
+        with open(CONFIG_BAR_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (IOError, json.JSONDecodeError) as e:
+        print(f"Ошибка при загрузке или разборе файла {CONFIG_BAR_FILE}: {e}")
+        # Создаем и возвращаем пустой конфиг в случае ошибки
+        default_config = {}
+        save_bar_config(default_config)
+        return default_config

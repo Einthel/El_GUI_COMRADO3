@@ -1,0 +1,329 @@
+[
+    {
+        "name": "VPN",
+        "icon_path": "resources/icons/vpn.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Clash Verge/Clash Verge.lnk"
+        }
+    },
+    {
+        "name": "Fan Profile 1",
+        "icon_path": "resources/icons/BTN11.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F3"
+        }
+    },
+    {
+        "name": "Fan Profile 2",
+        "icon_path": "resources/icons/BTN12.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F4"
+        }
+    },
+    {
+        "name": "Fan Profile 3",
+        "icon_path": "resources/icons/BTN13.png",
+        "sign": "",
+        "font": "Consolas",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F5"
+        }
+    },
+    {
+        "name": "Калькулятор",
+        "icon_path": "resources/icons/calculator.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "open_calculator"
+        }
+    },
+    {
+        "name": "Блокнот",
+        "icon_path": "resources/icons/notepad.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "open_notepad"
+        }
+    },
+    {
+        "name": "Play",
+        "icon_path": "resources/icons/pause-play.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "media_play_pause"
+        }
+    },
+    {
+        "name": "Sound Down",
+        "icon_path": "resources/icons/sound_down.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "sound_down"
+        }
+    },
+    {
+        "name": "Soind Up",
+        "icon_path": "resources/icons/sound_up.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "sound_up"
+        }
+    },
+    {
+        "name": "Screenshot",
+        "icon_path": "resources/icons/BTN14.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Shift+F10"
+        }
+    },
+    {
+        "name": "Record 30 sec",
+        "icon_path": "resources/icons/BTN15.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "shortcut",
+            "value": "Ctrl+Del"
+        }
+    },
+    {
+        "name": "BackPage",
+        "icon_path": "resources/icons/arrow-left.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "NextPage",
+        "icon_path": "resources/icons/arrow-right.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    },
+    {
+        "name": "Overlay",
+        "icon_path": "resources/icons/BTN16.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "shortcut",
+            "value": "F8"
+        }
+    },
+    {
+        "name": "Cursor",
+        "icon_path": "resources/icons/feather/sun.svg",
+        "sign": "cur-sor",
+        "font": "Cambria",
+        "font_size": 15,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/Desktop/Cursor.lnk"
+        }
+    },
+    {
+        "name": "Yandex Music",
+        "icon_path": "resources/icons/YMusic.png",
+        "sign": "",
+        "font": "Calibri",
+        "font_size": 8,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Яндекс Музыка.lnk"
+        }
+    },
+    {
+        "name": "Yandex Browser",
+        "icon_path": "resources/icons/ya.png",
+        "sign": "",
+        "font": "Arial",
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Local/Yandex/YandexBrowser/Application/browser.exe"
+        }
+    },
+    {
+        "name": "Light On",
+        "icon_path": "resources/icons/BTN31.png",
+        "sign": "Light ON",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "",
+            "value": ""
+        }
+    },
+    {
+        "name": "Light Off",
+        "icon_path": "resources/icons/BTN33.png",
+        "sign": "Light Off",
+        "font": "Cambria",
+        "action": {
+            "type": "",
+            "value": ""
+        }
+    },
+    {
+        "name": "Arrow Left",
+        "icon_path": "resources/icons/Arrow_icon/Arrow_left_sq.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "Arrow Right",
+        "icon_path": "resources/icons/Arrow_icon/Arrow_right_sq.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    },
+    {
+        "name": "Arrow Left 02",
+        "icon_path": "resources/icons/Arrow_icon/Arrow_left_sq_02.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "previous_page"
+        }
+    },
+    {
+        "name": "Arrow Right 02",
+        "icon_path": "resources/icons/Arrow_icon/Arrow_right_sq_02.svg",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "next_page"
+        }
+    },
+    {
+        "name": "Telegram",
+        "icon_path": "resources/icons/telegram.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "program",
+            "value": "C:/Users/nexus/AppData/Roaming/Telegram Desktop/Telegram.exe"
+        }
+    },
+    {
+        "name": "Image",
+        "icon_path": "resources/icons/image-upload.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 8,
+        "action": {
+            "type": "method",
+            "value": "open_browser"
+        }
+    },
+    {
+        "name": "Change_AD",
+        "icon_path": "resources/icons/System_Icon/playlist_off.png",
+        "sign": "",
+        "font": "Arial",
+        "font_size": 5,
+        "action": {
+            "type": "method",
+            "value": "switch_main_to_second_device"
+        }
+    },
+    {
+        "name": "Audio_1",
+        "icon_path": "resources/icons/System_Icon/align-left.png",
+        "sign": "Аудио 1",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "method",
+            "value": "set_main_audio_device"
+        }
+    },
+    {
+        "name": "Audio_2",
+        "icon_path": "resources/icons/System_Icon/align-centrer.png",
+        "sign": "Audio_2",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "method",
+            "value": "set_second_audio_device"
+        }
+    },
+    {
+        "name": "Audio_3",
+        "icon_path": "resources/icons/System_Icon/align-right.png",
+        "sign": "Audio_3",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "method",
+            "value": "set_third_audio_device"
+        }
+    },
+    {
+        "name": "Audio_4",
+        "icon_path": "resources/icons/System_Icon/align_center.png",
+        "sign": "Audio_4",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "method",
+            "value": "set_fourth_audio_device"
+        }
+    },
+    {
+        "name": "Audio_MtS",
+        "icon_path": "resources/icons/System_Icon/playlist_off.png",
+        "sign": "M_t_S",
+        "font": "Arial",
+        "font_size": 12,
+        "action": {
+            "type": "method",
+            "value": "toggle_main_second_audio"
+        }
+    }
+]

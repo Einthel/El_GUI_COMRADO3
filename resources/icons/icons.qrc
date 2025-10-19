@@ -1,0 +1,32 @@
+<RCC>
+  <qresource prefix="icons">
+    <file alias="align_center.png">System_Icon/align_center.png</file>
+    <file alias="align-bottom.png">System_Icon/align-bottom.png</file>
+    <file alias="align-centrer.png">System_Icon/align-centrer.png</file>
+    <file alias="align-left.png">System_Icon/align-left.png</file>
+    <file alias="align-right.png">System_Icon/align-right.png</file>
+    <file alias="align-top.png">System_Icon/align-top.png</file>
+    <file alias="Dislike.png">System_Icon/Dislike.png</file>
+    <file alias="Like_empty.png">System_Icon/Like_empty.png</file>
+    <file alias="Like.png">System_Icon/Like.png</file>
+    <file alias="next.png">System_Icon/next.png</file>
+    <file alias="next.svg">System_Icon/next.svg</file>
+    <file alias="Pause.png">System_Icon/Pause.png</file>
+    <file alias="Pause.svg">System_Icon/Pause.svg</file>
+    <file alias="Play.png">System_Icon/Play.png</file>
+    <file alias="Play.svg">System_Icon/Play.svg</file>
+    <file alias="playlist_off.png">System_Icon/playlist_off.png</file>
+    <file alias="playlist_off.svg">System_Icon/playlist_off.svg</file>
+    <file alias="playlist_on.png">System_Icon/playlist_on.png</file>
+    <file alias="playlist_on.svg">System_Icon/playlist_on.svg</file>
+    <file alias="prev.png">System_Icon/prev.png</file>
+    <file alias="prev.svg">System_Icon/prev.svg</file>
+    <file alias="repeat_off.png">System_Icon/repeat_off.png</file>
+    <file alias="repeat_off.svg">System_Icon/repeat_off.svg</file>
+    <file alias="repeat_on_1.png">System_Icon/repeat_on_1.png</file>
+    <file alias="repeat_on.png">System_Icon/repeat_on.png</file>
+    <file alias="shuffle_off.png">System_Icon/shuffle_off.png</file>
+    <file alias="shuffle_on.png">System_Icon/shuffle_on.png</file>
+    <file alias="1repeat_off.svg">System_Icon/1repeat_off.svg</file>
+  </qresource>
+</RCC>

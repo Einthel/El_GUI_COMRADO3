@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'storage_GB.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -78,7 +78,7 @@ class Ui_storage_GB(object):
         self.progressBar_storage_1.setMaximumSize(QSize(230, 30))
         self.progressBar_storage_1.setValue(0)
         self.progressBar_storage_1.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.progressBar_storage_1.setTextVisible(False)
+        self.progressBar_storage_1.setTextVisible(True)
         self.progressBar_storage_1.setOrientation(Qt.Orientation.Horizontal)
         self.progressBar_storage_1.setInvertedAppearance(False)
         self.progressBar_storage_1.setTextDirection(QProgressBar.Direction.TopToBottom)

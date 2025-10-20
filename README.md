@@ -5,7 +5,6 @@ El_GUI_COMRADO3 - это многофункциональная настраив
 Проект находится в активной разработке с постоянными улучшениями и новыми функциями.
 
 <!-- Пользователю рекомендуется добавить сюда скриншот приложения -->
-
 <img width="1024" height="600" alt="Screenshot 2025-10-19 053511" src="https://github.com/user-attachments/assets/b710f719-d80b-4594-95cc-7fe9b1c2d5cd" />
 <img width="1024" height="600" alt="Screenshot 2025-10-19 053531" src="https://github.com/user-attachments/assets/8d542fab-6c2a-44d7-9ac5-b89cdb06caa5" />
 <img width="1024" height="600" alt="Screenshot 2025-10-19 053539" src="https://github.com/user-attachments/assets/f6436df0-6b84-4587-af17-cd384bf5db65" />

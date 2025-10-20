@@ -266,7 +266,7 @@
     },
     "hwinfo_settings": {
         "selected_gpu_name": "NVIDIA GeForce RTX 3080",
-        "fan_cpu_sensor": "",
+        "fan_cpu_sensor": " ",
         "pump_cpu_sensor": "",
         "storage_sensor": "",
         "system_drive_letter": ""

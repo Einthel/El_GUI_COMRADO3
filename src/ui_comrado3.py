@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'comrado3.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -601,7 +601,7 @@ class Ui_MainWindow(object):
         self.progressBar_ram.setMinimumSize(QSize(240, 30))
         self.progressBar_ram.setMaximumSize(QSize(240, 30))
         self.progressBar_ram.setValue(0)
-        self.progressBar_ram.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.progressBar_ram.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
         self.progressBar_ram.setTextVisible(True)
         self.progressBar_ram.setOrientation(Qt.Orientation.Horizontal)
         self.progressBar_ram.setInvertedAppearance(False)
@@ -702,14 +702,14 @@ class Ui_MainWindow(object):
         self.Storage_scrollArea.setMaximumSize(QSize(270, 350))
         self.Storage_scrollArea.setLineWidth(1)
         self.Storage_scrollArea.setMidLineWidth(1)
-        self.Storage_scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.Storage_scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.Storage_scrollArea.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.Storage_scrollArea.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
         self.Storage_scrollArea.setWidgetResizable(True)
         self.Storage_scrollArea.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.storage_scrollAW = QWidget()
         self.storage_scrollAW.setObjectName(u"storage_scrollAW")
-        self.storage_scrollAW.setGeometry(QRect(0, 0, 256, 348))
+        self.storage_scrollAW.setGeometry(QRect(0, 0, 268, 348))
         self.storage_container_layout = QVBoxLayout(self.storage_scrollAW)
         self.storage_container_layout.setSpacing(5)
         self.storage_container_layout.setObjectName(u"storage_container_layout")
@@ -1021,16 +1021,16 @@ class Ui_MainWindow(object):
         self.Settings_page.setMinimumSize(QSize(700, 570))
         self.Settings_page.setMaximumSize(QSize(16777215, 570))
         self.Settings_page.setStyleSheet(u"background-color: rgb(85, 170, 127);")
-        self.widget = QWidget(self.Settings_page)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(10, 10, 653, 439))
-        self.verticalLayout_3 = QVBoxLayout(self.widget)
+        self.layoutWidget = QWidget(self.Settings_page)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(10, 10, 653, 439))
+        self.verticalLayout_3 = QVBoxLayout(self.layoutWidget)
         self.verticalLayout_3.setSpacing(5)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.Header_Button = QHBoxLayout()
         self.Header_Button.setObjectName(u"Header_Button")
-        self.Editor_frame = QFrame(self.widget)
+        self.Editor_frame = QFrame(self.layoutWidget)
         self.Editor_frame.setObjectName(u"Editor_frame")
         self.Editor_frame.setMinimumSize(QSize(250, 46))
         self.Editor_frame.setMaximumSize(QSize(250, 46))
@@ -1063,7 +1063,7 @@ class Ui_MainWindow(object):
 
         self.Header_Button.addWidget(self.Editor_frame)
 
-        self.Page_control_frame = QFrame(self.widget)
+        self.Page_control_frame = QFrame(self.layoutWidget)
         self.Page_control_frame.setObjectName(u"Page_control_frame")
         sizePolicy.setHeightForWidth(self.Page_control_frame.sizePolicy().hasHeightForWidth())
         self.Page_control_frame.setSizePolicy(sizePolicy)
@@ -1119,12 +1119,12 @@ class Ui_MainWindow(object):
 
         self.Header_Button.addWidget(self.Page_control_frame)
 
-        self.Settings_tB = QToolButton(self.widget)
+        self.Settings_tB = QToolButton(self.layoutWidget)
         self.Settings_tB.setObjectName(u"Settings_tB")
 
         self.Header_Button.addWidget(self.Settings_tB)
 
-        self.switch_audio_butt = QPushButton(self.widget)
+        self.switch_audio_butt = QPushButton(self.layoutWidget)
         self.switch_audio_butt.setObjectName(u"switch_audio_butt")
         self.switch_audio_butt.setStyleSheet(u"background-color: rgb(255, 0, 4);\n"
 "border-color: rgb(0, 34, 255);")
@@ -1134,7 +1134,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addLayout(self.Header_Button)
 
-        self.Settings_scrollArea = QScrollArea(self.widget)
+        self.Settings_scrollArea = QScrollArea(self.layoutWidget)
         self.Settings_scrollArea.setObjectName(u"Settings_scrollArea")
         self.Settings_scrollArea.setFrameShape(QFrame.Shape.Box)
         self.Settings_scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
@@ -1143,16 +1143,16 @@ class Ui_MainWindow(object):
         self.Settings_scrollArea.setWidgetResizable(False)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -168, 650, 600))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 650, 600))
         self.scrollAreaWidgetContents.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.widget1 = QWidget(self.scrollAreaWidgetContents)
-        self.widget1.setObjectName(u"widget1")
-        self.widget1.setGeometry(QRect(10, 10, 641, 241))
-        self.horizontalLayout_6 = QHBoxLayout(self.widget1)
+        self.layoutWidget1 = QWidget(self.scrollAreaWidgetContents)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.layoutWidget1.setGeometry(QRect(10, 10, 641, 241))
+        self.horizontalLayout_6 = QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_6.setSpacing(5)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(5, 0, 5, 0)
-        self.Settings_HWINFO = QGroupBox(self.widget1)
+        self.Settings_HWINFO = QGroupBox(self.layoutWidget1)
         self.Settings_HWINFO.setObjectName(u"Settings_HWINFO")
         self.Settings_HWINFO.setMinimumSize(QSize(260, 0))
         self.Settings_HWINFO.setMaximumSize(QSize(290, 16777215))
@@ -1253,7 +1253,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_6.addWidget(self.Settings_HWINFO)
 
-        self.Audio_Sett_GB = QGroupBox(self.widget1)
+        self.Audio_Sett_GB = QGroupBox(self.layoutWidget1)
         self.Audio_Sett_GB.setObjectName(u"Audio_Sett_GB")
         self.Audio_Sett_GB.setMinimumSize(QSize(260, 0))
         self.Audio_Sett_GB.setMaximumSize(QSize(290, 16777215))

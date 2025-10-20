@@ -142,7 +142,7 @@
         }
     },
     {
-        "name": "Cursor",
+        "name": "Curs_or",
         "icon_path": "resources/icons/feather/sun.svg",
         "sign": "cur-sor",
         "font": "Cambria",
